@@ -1,0 +1,13 @@
+extends layout 
+block main 
+  form.header(action="http://localhost:5000/auth" method="get")
+    .auth-wrapper
+      h1 Welcome Dear Internet Friend
+      p Enter your domain name to log in to: 
+        a(href=`${client_id}`, target="_blank" rel="noopener noreferrer")= client_id 
+      label.screen-reader-text(for="url") login to formzilla
+      input(id="url" type="url" name="me" value=`${me}` )
+      input(type="hidden" name="redirect_uri" value=`${redirect_uri}`)
+      input(type="hidden" name="client_id" value=`${client_id}`)
+      input(type="hidden" name="state" value=`${state}`)
+      button(type="submit") Sign In With Your Domain

@@ -1,0 +1,11 @@
+extends layout 
+block main
+  .marginTop-2.text-center
+    h2 Choose An Authentication Provider
+    .auth-wrapper 
+      for choice in choices 
+        a.auth-provider(href=`/social?provider=${choice.provider}&username=${choice.username}`)
+          svg(class="icon icon--small icon--btn" width="22px" height="22px")
+            title= choice.display
+            use(xlink:href=`#icon-${choice.provider}`)
+          span= choice.display  

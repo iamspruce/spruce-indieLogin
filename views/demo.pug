@@ -1,0 +1,10 @@
+extends layout 
+block main
+  form(action="http://localhost:5000/auth" method="get")
+    label(for="url">Web Address:)
+    input(id="url" type="text" name="me" placeholder="yourdomain.com")
+    p
+      button(type="submit") Sign In
+    input(type="hidden" name="client_id" value="http://localhost:5000/")
+    input(type="hidden" name="redirect_uri" value="http://localhost:5000/redirect")
+    input(type="hidden" name="state" value="jwiusuerujs")

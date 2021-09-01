@@ -1,0 +1,9 @@
+extends layout 
+block main
+  .marginTop-2.text-center
+    h2 Verification Code sent to: #{username}
+    .marginTop-2 
+      p Check your Email and click `continue to log in` button 
+      p Didn't get an Email?
+      .text-center 
+      a.btn.btn-primary(href=`http://localhost:5000/auth?me=${me}&client_id=${client_id}&redirect_uri=${redirect_uri}&state=${state}&action=logout`) Restart Login
