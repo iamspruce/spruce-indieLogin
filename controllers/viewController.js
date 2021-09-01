@@ -62,7 +62,7 @@ exports.login = async (req, res, next) => {
       Accept: "application/json",
     };
     // STEP 4.5.2: make a post request to `https://indielogin.com/auth` with the data and the header
-    const newReq = await axios.post("http://indie.iamspruce.dev/auth", data, {
+    const newReq = await axios.post("https://indie.iamspruce.dev/auth", data, {
       headers,
     });
 

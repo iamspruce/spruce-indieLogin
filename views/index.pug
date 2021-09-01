@@ -15,11 +15,11 @@ html(lang="en")
         form.header(action="http://localhost:5000/auth" method="get")
           div
             h1 Welcome Dear Internet Friend
-            p Enter Your Domain name in the form below to test the Indielogin.com Authentication
+            p Enter Your Domain name in the form below to test the spruceAuth Authentication
           label.screen-reader-text(for="url") login to formzilla
-          input(id="url" type="url" name="me" placeholder="http://yourdomain.com" )
-          input(type="hidden" name="redirect_uri" value="http://localhost:5000/demo/login")
-          input(type="hidden" name="client_id" value="http://localhost:5000")
+          input(id="url" type="url" name="me" placeholder="https://yourdomain.com" )
+          input(type="hidden" name="redirect_uri" value="https://indie.iamspruce.dev/demo/login")
+          input(type="hidden" name="client_id" value="https://indie.iamspruce.dev")
           input(type="hidden" name="state" value="jwiusuerujs")
           button(type="submit") Sign In With Your Domain
       footer.footer
