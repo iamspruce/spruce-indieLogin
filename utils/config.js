@@ -12,7 +12,7 @@ module.exports = {
   },
 
   githubAuth: {
-    clientID: process.env.githubClientId,
+    clientID: process.env.githubClientID,
     clientSecret: process.env.githubSecret,
     callbackURL: process.env.appsCallback,
   },
