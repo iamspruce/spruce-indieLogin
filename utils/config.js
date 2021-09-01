@@ -17,7 +17,7 @@ module.exports = {
     callbackURL: process.env.appsCallback,
   },
   googleAuth: {
-    clientID: process.env.googleClientID,
+    clientID: process.env.googleClientId,
     clientSecret: process.env.googleSecret,
     callbackURL: process.env.appsCallback,
   },
