@@ -129,6 +129,9 @@ svg {
   text-align: center;
   margin: auto;
 }
+.logo {
+  border-radius: 50%;
+}
 .wrapper-home {
   display: flex;
   flex-direction: column;

@@ -4,15 +4,15 @@ body
     main.main 
       aside.border-right.bg-alt 
         header 
-          a.flex(href=`${app_url}`, target="_blank" rel="noopener noreferrer") 
+          a.logo.flex(href=`${app_url}`, target="_blank" rel="noopener noreferrer") 
             if app_logo 
               img(src=`${app_logo}` width="48px" height="48px" alt=`${client_id}`)
               span= `${app_name}`
             else 
               img(src="/img/spruce.webp" width="48px" height="48px" alt="Spruce")
               span Spruce
-        footer.text-center 
-          h3 Loggin In to 
+        footer 
+          h3.marginTop-2 Loggin In to 
             a(href=`${client_id}`, target="_blank" rel="noopener noreferrer")= client_id
           p.marginTop-2= `You will login as ${me} • and you will be redirected to ${redirect_uri}`
       aside
