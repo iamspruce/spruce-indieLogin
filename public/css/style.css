@@ -217,10 +217,8 @@ aside footer {
   align-items: center;
 }
 
-@media (min-width: 572px) {
-  .bg-alt {
-    background-color: var(--background-color-alt);
-  }
+.bg-alt {
+  background-color: var(--background-color-alt);
 }
 
 /* footer */
