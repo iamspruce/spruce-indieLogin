@@ -115,8 +115,9 @@ svg {
   width: 100vw;
   height: 100vh;
   max-width: 1400px;
-  padding: 2rem;
   background-color: var(--background-color-alt);
+  margin-left: auto;
+  margin-right: auto;
 }
 .header {
   width: 100%;
@@ -141,17 +142,18 @@ svg {
   max-width: 700px;
   box-shadow: var(--shadow);
   background-color: var(--background-color);
-  border: 1px solid var(--border-color);
-  border-radius: 11px;
 }
 @media (min-width: 572px) {
   .wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2rem;
   }
   .main {
     display: flex;
+    border-radius: 11px;
+    border: 1px solid var(--border-color);
   }
 }
 .main > * {
@@ -210,8 +212,11 @@ aside footer {
   display: flex;
   align-items: center;
 }
-.bg-alt {
-  background-color: rgba(0, 0, 0, 0.07);
+
+@media (min-width: 572px) {
+  .bg-alt {
+    background-color: var(--background-color-alt);
+  }
 }
 
 /* footer */

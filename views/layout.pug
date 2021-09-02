@@ -17,7 +17,7 @@ body
           p.marginTop-2= `You will login as ${me} • and you will be redirected to ${redirect_uri}`
       aside
         header.text-right 
-          small IndieLog service created by 
-            a(href="") Spruce 
+          small Logging In to:  
+            a(href=`${client_id}`, target="_blank" rel="noopener noreferrer")= client_id 
         block main
 include svg

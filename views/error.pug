@@ -1,5 +1,8 @@
 extends layout 
 block main 
-  - console.log(error)
-  h1= title
-  p= error
+  .header= title 
+  .auth-wrapper
+    if error.message 
+      p.text-center= error.message
+    else 
+      p.text-center= error 

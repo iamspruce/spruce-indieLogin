@@ -42,7 +42,6 @@ router.get("/callback", (req, res, next) => {
           code: req.session.code,
           state: req.session.login_request.state,
         });
-        console.log(req.session, query);
 
         await User.create({
           me: req.session.me,

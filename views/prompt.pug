@@ -1,5 +1,6 @@
 extends layout 
 block main 
-  p You are logging In to: #{login_request.client_info.client_id}
-  p You will be redirected to:  login_request.client_info.redirect_uri
-  a.btn.btn-round(href=`${auth}?${switch_account}`) Switch Account
+  header.header You are logging In to: #{login_request.client_info.client_id}
+  .auth-wrapper
+    p You will be redirected to:  login_request.client_info.redirect_uri
+    a.btn.btn-round(href=`${auth}?${switch_account}`) Switch Account

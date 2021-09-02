@@ -1,5 +1,5 @@
 const GitHubStrategy = require("passport-github2");
-const TwitterStrategy = require("passport-twitter");
+const TwitterStrategy = require("passport-twitter").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const FacebookStrategy = require("passport-facebook").Strategy;
 
@@ -51,12 +51,22 @@ module.exports = function (passport) {
         consumerSecret: configAuth.twitterAuth.consumerSecret,
         callbackURL: configAuth.twitterAuth.callbackURL,
       },
-      async function (token, tokenSecret, profile, cb) {
+      function (token, refreshToken, profile, cb) {
         console.log(profile);
 
-        if (!profile) {
-          // This can happen if you haven't enabled email access in your twitter app permissions
-          return done(new Error("Twitter OAuth response doesn't have email."));
+        if (!req.session.me) {
+          return done(null, false, {
+            message: "Session Expired, please go back and try again",
+          });
+        }
+
+        const me = req.session.me;
+        if (!profile._json.blog.includes(me)) {
+          return cb(null, false, {
+            message: `We could not find ${me} on your profile, please add it and try again`,
+          });
+        } else {
+          return cb(null, profile);
         }
       }
     )
@@ -71,7 +81,19 @@ module.exports = function (passport) {
         clientSecret: configAuth.googleAuth.clientSecret,
       },
       async (accessToken, refreshToken, profile, done) => {
-        done(null, profile);
+        if (!req.session.me) {
+          return done(null, false, {
+            message: "Session Expired, please go back and try again",
+          });
+        }
+
+        if (!profile) {
+          return done(null, false, {
+            message: `We could not connect to google`,
+          });
+        } else {
+          return done(null, profile);
+        }
       }
     )
   );
@@ -85,7 +107,21 @@ module.exports = function (passport) {
         callbackURL: configAuth.facebookAuth.callbackURL,
       },
       function (accessToken, refreshToken, profile, cb) {
-        return cb(null, profile);
+        if (!req.session.me) {
+          return done(null, false, {
+            message: "Session Expired, please go back and try again",
+          });
+        }
+
+        const me = req.session.me;
+        console.log(profile);
+        if (!profile._json.website.includes(me)) {
+          return cb(null, false, {
+            message: `We could not find ${me} on your facebook profile, please add it and try again`,
+          });
+        } else {
+          return cb(null, profile);
+        }
       }
     )
   );
