@@ -107,15 +107,15 @@ module.exports = function (passport) {
         callbackURL: configAuth.facebookAuth.callbackURL,
       },
       function (req, accessToken, refreshToken, profile, cb) {
-        if (!req.session.me) {
+        /*   if (!req.session.me) {
           return done(null, false, {
             message: "Session Expired, please go back and try again",
           });
         }
 
-        const me = req.session.me;
-        console.log(profile);
-        if (!profile._json.website.includes(me)) {
+        const me = req.session.me; */
+        console.log(profile, req.session);
+        if (!profile) {
           return cb(null, false, {
             message: `We could not find ${me} on your facebook profile, please add it and try again`,
           });

@@ -72,6 +72,13 @@ const sendErrorProd = (err, req, res) => {
     return res.status(err.statusCode).render("error", {
       title: "Something went wrong!",
       msg: err.message,
+      me: req.session.me,
+      client_id: req.session.login_request.client_id,
+      redirect_uri: req.session.login_request.redirect_uri,
+      state: req.session.login_request.state,
+      app_name: req.session.login_request.client_info.app_name,
+      app_url: req.session.login_request.client_info.app_url,
+      app_logo: req.session.login_request.client_info.app_logo,
     });
   }
   // B) Programming or other unknown error: don't leak error details
