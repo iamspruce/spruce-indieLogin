@@ -51,7 +51,7 @@ module.exports = function (passport) {
         consumerSecret: configAuth.twitterAuth.consumerSecret,
         callbackURL: configAuth.twitterAuth.callbackURL,
       },
-      function (token, refreshToken, profile, cb) {
+      function (req, token, refreshToken, profile, cb) {
         console.log(profile);
 
         if (!req.session.me) {
@@ -80,7 +80,7 @@ module.exports = function (passport) {
         clientID: configAuth.googleAuth.clientID,
         clientSecret: configAuth.googleAuth.clientSecret,
       },
-      async (accessToken, refreshToken, profile, done) => {
+      async (req, accessToken, refreshToken, profile, done) => {
         if (!req.session.me) {
           return done(null, false, {
             message: "Session Expired, please go back and try again",
@@ -106,7 +106,7 @@ module.exports = function (passport) {
         clientSecret: configAuth.facebookAuth.clientSecret,
         callbackURL: configAuth.facebookAuth.callbackURL,
       },
-      function (accessToken, refreshToken, profile, cb) {
+      function (req, accessToken, refreshToken, profile, cb) {
         if (!req.session.me) {
           return done(null, false, {
             message: "Session Expired, please go back and try again",
