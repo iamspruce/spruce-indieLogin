@@ -1,5 +1,4 @@
 const AppError = require("./../utils/AppError");
-const catchAsync = require("./../utils/catchAsync");
 const validator = require("validator");
 const cheerio = require("cheerio");
 const axios = require("axios");
