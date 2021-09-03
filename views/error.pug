@@ -3,7 +3,7 @@ block main
   - console.log(err, error)
   h1.header= title 
   .bg-err
-    if error
+    if error.message
       p.text-center= error.message
     else 
-      p.text-center Something went very wrong we could not authenticate you using this provider, please go back and select another provider
+      p.text-center error
