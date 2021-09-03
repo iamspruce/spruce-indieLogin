@@ -41,12 +41,6 @@ const supportedProviders = (rels) => {
         username: url.parse(el).href.split(":")[1],
         display: url.parse(el).href.split(":")[1],
       });
-    } else if (el.includes("facebook")) {
-      supported.push({
-        provider: url.parse(el).hostname.split(".")[0],
-        username: url.parse(el).pathname.split("/")[1],
-        display: `fb.com${url.parse(el).pathname}`,
-      });
     }
   });
   return supported;

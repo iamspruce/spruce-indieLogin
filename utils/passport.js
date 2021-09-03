@@ -1,7 +1,6 @@
 const GitHubStrategy = require("passport-github2");
 const TwitterStrategy = require("passport-twitter").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const FacebookStrategy = require("passport-facebook").Strategy;
 
 var configAuth = require("./config");
 
@@ -66,63 +65,6 @@ module.exports = function (passport) {
         if (!profile._json.blog.includes(me)) {
           return cb(null, false, {
             message: `We could not find ${me} on your profile, please add it and try again`,
-          });
-        } else {
-          return cb(null, profile);
-        }
-      }
-    )
-  );
-
-  // GOOGLE
-  passport.use(
-    new GoogleStrategy(
-      {
-        callbackURL: configAuth.googleAuth.callbackURL,
-        clientID: configAuth.googleAuth.clientID,
-        clientSecret: configAuth.googleAuth.clientSecret,
-        passReqToCallback: true,
-      },
-      async (req, accessToken, refreshToken, profile, done) => {
-        if (!req.session.me) {
-          return done(null, false, {
-            message: "Session Expired, please go back and try again",
-          });
-        }
-
-        if (!profile) {
-          return done(null, false, {
-            message: `We could not connect to google`,
-          });
-        } else {
-          return done(null, profile);
-        }
-      }
-    )
-  );
-
-  //FACEBOOK
-  passport.use(
-    new FacebookStrategy(
-      {
-        clientID: configAuth.facebookAuth.clientID,
-        clientSecret: configAuth.facebookAuth.clientSecret,
-        callbackURL: configAuth.facebookAuth.callbackURL,
-        profileFields: ["id", "displayName", "website"],
-        passReqToCallback: true,
-      },
-      function (req, accessToken, refreshToken, profile, cb) {
-        if (!req.session.me) {
-          return done(null, false, {
-            message: "Session Expired, please go back and try again",
-          });
-        }
-
-        const me = req.session.me;
-        console.log(profile, req.session);
-        if (!profile._json.website.includes(me)) {
-          return cb(null, false, {
-            message: `We could not find ${me} on your facebook profile, please add it and try again`,
           });
         } else {
           return cb(null, profile);
