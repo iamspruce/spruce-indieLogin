@@ -41,7 +41,7 @@ const sendErrorDev = (err, req, res) => {
   console.error("ERROR 💥", err);
   return res.status(err.statusCode).render("error", {
     title: "Something went wrong!",
-    msg: err.message,
+    error: err.message,
     me: req.session.me,
     client_id: req.session.login_request.client_id,
     redirect_uri: req.session.login_request.redirect_uri,
@@ -78,7 +78,7 @@ const sendErrorProd = (err, req, res) => {
     console.log(err);
     return res.status(err.statusCode).render("error", {
       title: "Something went wrong!",
-      msg: err.message,
+      error: err.message,
       me: req.session.me,
       client_id: req.session.login_request.client_id,
       redirect_uri: req.session.login_request.redirect_uri,
@@ -94,7 +94,7 @@ const sendErrorProd = (err, req, res) => {
   // 2) Send generic message
   return res.status(err.statusCode).render("error", {
     title: "Something went wrong!",
-    msg: "Please try again later.",
+    error: "Please try again later.",
     me: req.session.me,
     client_id: req.session.login_request.client_id,
     redirect_uri: req.session.login_request.redirect_uri,
