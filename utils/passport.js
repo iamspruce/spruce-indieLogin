@@ -50,6 +50,8 @@ module.exports = function (passport) {
         consumerKey: configAuth.twitterAuth.consumerKey,
         consumerSecret: configAuth.twitterAuth.consumerSecret,
         callbackURL: configAuth.twitterAuth.callbackURL,
+        includeEmail: true,
+        passReqToCallback: true,
       },
       function (req, token, refreshToken, profile, cb) {
         console.log(profile);
@@ -79,6 +81,7 @@ module.exports = function (passport) {
         callbackURL: configAuth.googleAuth.callbackURL,
         clientID: configAuth.googleAuth.clientID,
         clientSecret: configAuth.googleAuth.clientSecret,
+        passReqToCallback: true,
       },
       async (req, accessToken, refreshToken, profile, done) => {
         if (!req.session.me) {
@@ -105,17 +108,19 @@ module.exports = function (passport) {
         clientID: configAuth.facebookAuth.clientID,
         clientSecret: configAuth.facebookAuth.clientSecret,
         callbackURL: configAuth.facebookAuth.callbackURL,
+        profileFields: ["id", "displayName", "website"],
+        passReqToCallback: true,
       },
       function (req, accessToken, refreshToken, profile, cb) {
-        /*   if (!req.session.me) {
+        if (!req.session.me) {
           return done(null, false, {
             message: "Session Expired, please go back and try again",
           });
         }
 
-        const me = req.session.me; */
+        const me = req.session.me;
         console.log(profile, req.session);
-        if (!profile) {
+        if (!profile._json.website.includes(me)) {
           return cb(null, false, {
             message: `We could not find ${me} on your facebook profile, please add it and try again`,
           });

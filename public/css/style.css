@@ -220,7 +220,10 @@ aside footer {
 .bg-alt {
   background-color: var(--background-color-alt);
 }
-
+.bg-err {
+  background-color: rgb(250, 127, 127);
+  color: #fff;
+}
 /* footer */
 .footer {
   margin-top: auto;
