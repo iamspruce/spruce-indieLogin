@@ -1,8 +1,9 @@
 extends layout 
 block main 
-  .header= title 
-  .auth-wrapper.bg-err
+  - console.log(err, error)
+  h1.header= title 
+  .bg-err
     if error
       p.text-center= error.message
     else 
-      p.text-center Something went very wrong
+      p.text-center Something went very wrong we could not authenticate you using this provider, please go back and select another provider

@@ -4,43 +4,37 @@ html(lang="en")
 
   body
     .wrapper.wrapper-home 
-      if user
-        .header
-          div
-            h1= `Hello ${user.username} Welcome`
-            img(src="/img/spruce.webp" width="200px" height="200px" alt="Image of spruce")
-            p You found me, I created this as a demo for IndieLogin.com user authentication with NodeJs -> Express -> MongoDB 
-            p(style="margin-bottom: 2rem;") In 2 minutes time your domain name would be deleted from our Database(No hard feelings, this is a demo) Although you can restart the process again
-      else 
-        form.header(action="/auth" method="get")
-          div
-            h1 Welcome Dear Internet Friend
+      form.header(action="/auth" method="get")
+        div
+          h1 Welcome Dear Internet Friend
+          if user 
+            p You successfully authenticated as #{user.username}
+            p Enter your domain to try again
+          else
             p Enter Your Domain name in the form below to test the spruceAuth Authentication
-          label.screen-reader-text(for="url") login to formzilla
-          input(id="url" type="url" name="me" placeholder="https://yourdomain.com" )
-          input(type="hidden" name="redirect_uri" value="https://indie.iamspruce.dev/demo/login")
-          input(type="hidden" name="client_id" value="https://indie.iamspruce.dev")
-          input(type="hidden" name="state" value="jwiusuerujs")
-          button(type="submit") Sign In With Your Domain
-      footer.footer
-        .footer__inner.h-app
-          p.footer__item
-            strong © 2021 
-            br 
-            a.u-url.p-name(href="http://localhost:4000/") Spruce
-          p.footer__item
-            strong Social 
-            br 
-            a(href="https://github.com/iamspruce" rel="me") Github 
-            | /
-            a(href="https://twitter.com/sprucekhalifa" rel="me") Twitter
-          p.footer__item
-            strong Project files 
-            br
-            a(href="https://github.com/iamspruce/indieLogin-Demo") View project files
-          p.footer__item
-            strong Buy me a Coffee 
-            br
-            a(href="https://ko-fi.com/spruceemma") spruceemma
-
-
+        label.screen-reader-text(for="url") login to formzilla
+        input(id="url" type="url" name="me" placeholder="https://yourdomain.com" )
+        input(type="hidden" name="redirect_uri" value="https://indie.iamspruce.dev/demo/login")
+        input(type="hidden" name="client_id" value="https://indie.iamspruce.dev")
+        input(type="hidden" name="state" value="jwiusuerujs")
+        button(type="submit") Sign In With Your Domain
+    footer.footer
+      .footer__inner.h-app
+        p.footer__item
+          strong © 2021 
+          br 
+          a.u-url.p-name(href="http://localhost:4000/") Spruce
+        p.footer__item
+          strong Social 
+          br 
+          a(href="https://github.com/iamspruce" rel="me") Github 
+          | /
+          a(href="https://twitter.com/sprucekhalifa" rel="me") Twitter
+        p.footer__item
+          strong Project files 
+          br
+          a(href="https://github.com/iamspruce/indieLogin-Demo") View project files
+        p.footer__item
+          strong Buy me a Coffee 
+          br
+          a(href="https://ko-fi.com/spruceemma") spruceemma

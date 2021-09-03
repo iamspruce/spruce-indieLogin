@@ -93,12 +93,11 @@ button,
   margin: 2rem 14px;
   background-color: var(--primary-color);
   color: #fff;
-  border: apx solid var(--primary-color-alt);
+  border: 1px solid var(--primary-color-alt);
   transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   display: inline-block;
 }
-.btn-round {
-  padding: 1rem;
+.btn.btn-round {
   border-radius: 40rem;
 }
 button:hover,
@@ -223,6 +222,7 @@ aside footer {
 .bg-err {
   background-color: rgb(250, 127, 127);
   color: #fff;
+  padding: 1rem;
 }
 /* footer */
 .footer {

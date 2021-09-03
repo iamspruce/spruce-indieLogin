@@ -39,7 +39,7 @@ const supportedProviders = (rels) => {
       supported.push({
         provider: url.parse(el).protocol,
         username: url.parse(el).href.split(":")[1],
-        display: url.parse(el).href,
+        display: url.parse(el).href.split(":")[1],
       });
     } else if (el.includes("facebook")) {
       supported.push({
@@ -162,10 +162,13 @@ exports.auth = catchAsync(async (req, res, next) => {
       });
       const switch_account = `/auth?${query}`;
       return res.status(200).render("prompt", {
-        title: `Sign In using indieLog`,
+        title: `Sign In using spruceAuth`,
         me: req.session.me,
-        code: req.session.code,
-        login_request,
+        client_id: login_request.client_id,
+        redirect_uri: login_request.redirect_uri,
+        app_name: login_request.client_info.app_name,
+        app_url: login_request.client_info.app_url,
+        app_logo: login_request.client_info.app_logo,
         switch_account,
       });
     }
