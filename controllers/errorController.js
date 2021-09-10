@@ -42,13 +42,6 @@ const sendErrorDev = (err, req, res) => {
   return res.status(err.statusCode).render("error", {
     title: "Something went wrong!",
     error: err.message,
-    me: req.session.me,
-    client_id: req.session.login_request.client_id,
-    redirect_uri: req.session.login_request.redirect_uri,
-    state: req.session.login_request.state,
-    app_name: req.session.login_request.client_info.app_name,
-    app_url: req.session.login_request.client_info.app_url,
-    app_logo: req.session.login_request.client_info.app_logo,
   });
 };
 
@@ -79,13 +72,6 @@ const sendErrorProd = (err, req, res) => {
     return res.status(err.statusCode).render("error", {
       title: "Something went wrong!",
       error: err.message,
-      me: req.session.me,
-      client_id: req.session.login_request.client_id,
-      redirect_uri: req.session.login_request.redirect_uri,
-      state: req.session.login_request.state,
-      app_name: req.session.login_request.client_info.app_name,
-      app_url: req.session.login_request.client_info.app_url,
-      app_logo: req.session.login_request.client_info.app_logo,
     });
   }
   // B) Programming or other unknown error: don't leak error details
@@ -94,14 +80,7 @@ const sendErrorProd = (err, req, res) => {
   // 2) Send generic message
   return res.status(err.statusCode).render("error", {
     title: "Something went wrong!",
-    error: "Please try again later.",
-    me: req.session.me,
-    client_id: req.session.login_request.client_id,
-    redirect_uri: req.session.login_request.redirect_uri,
-    state: req.session.login_request.state,
-    app_name: req.session.login_request.client_info.app_name,
-    app_url: req.session.login_request.client_info.app_url,
-    app_logo: req.session.login_request.client_info.app_logo,
+    error: "Something went wrong from the server. please try again",
   });
 };
 

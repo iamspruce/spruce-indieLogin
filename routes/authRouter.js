@@ -27,7 +27,7 @@ router.get("/callback", (req, res, next) => {
       }
       if (!user) {
         return res.status(401).render("error", {
-          title: "error",
+          title: "Something went wrong!",
           error: info,
         });
       }

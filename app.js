@@ -48,6 +48,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 require("./utils/passport")(passport);
+require("./utils/passport")(passport);
 
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));

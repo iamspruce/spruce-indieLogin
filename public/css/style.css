@@ -96,9 +96,16 @@ button,
   border: 1px solid var(--primary-color-alt);
   transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   display: inline-block;
+  border-radius: 11px;
 }
 .btn.btn-round {
   border-radius: 40rem;
+}
+.btn.btn-white {
+  background-color: #fff;
+  color: var(--primary-color);
+  padding: 1rem;
+  margin: 2rem 0px;
 }
 button:hover,
 .btn:hover {
@@ -109,6 +116,9 @@ button:hover,
 svg {
   fill: currentColor;
   vertical-align: middle;
+}
+.font-size-large {
+  font-size: x-large;
 }
 .wrapper {
   width: 100vw;
@@ -219,8 +229,8 @@ aside footer {
 .bg-alt {
   background-color: var(--background-color-alt);
 }
-.bg-err {
-  background-color: rgb(250, 127, 127);
+.err {
+  background-color: #c0392b;
   color: #fff;
   padding: 1rem;
 }

@@ -8,6 +8,7 @@ const User = require("../model/user");
 const Email = require("./../utils/email");
 const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
+
 const {
   discoverClient_id,
   discoverClient_app,
@@ -28,12 +29,6 @@ const supportedProviders = (rels) => {
         provider: url.parse(el).hostname.split(".")[0],
         username: url.parse(el).pathname.split("/")[1],
         display: `github.com${url.parse(el).pathname}`,
-      });
-    } else if (el.includes("twitter")) {
-      supported.push({
-        provider: url.parse(el).hostname.split(".")[0],
-        username: url.parse(el).pathname.split("/")[1],
-        display: `twitter.com${url.parse(el).pathname}`,
       });
     } else if (el.includes("mailto")) {
       supported.push({
@@ -64,7 +59,7 @@ exports.auth = catchAsync(async (req, res, next) => {
 
     // CHECK IF CLIENT_ID IF TRUSTED
     const trusted_client_ids = await discoverClient_id(
-      `https://indie.iamspruce.dev/`
+      `http://localhost:5000/`
     );
 
     if (

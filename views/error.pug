@@ -1,9 +1,12 @@
-extends layout 
-block main 
-  - console.log(err, error)
-  h1.header= title 
-  .bg-err
+include head
+body.err
+  .wrapper-600 
+    p.marginTop-2.font-size-large ¯\_(ツ)_/¯
     if error.message
-      p.text-center= error.message
+      p.marginTop-2 #{error.message}
     else 
-      p.text-center error
+      p.marginTop-2 #{error}
+    .marginTop-2 
+      p View the setup instructions for more information.
+      p If you have any trouble using this service, please open an issue on GitHub.
+      a.btn.btn-white(href="") Open Issue
