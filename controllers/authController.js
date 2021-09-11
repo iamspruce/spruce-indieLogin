@@ -59,7 +59,7 @@ exports.auth = catchAsync(async (req, res, next) => {
 
     // CHECK IF CLIENT_ID IF TRUSTED
     const trusted_client_ids = await discoverClient_id(
-      `http://localhost:5000/`
+      `https://indie.iamspruce.dev`
     );
 
     if (
@@ -139,9 +139,11 @@ exports.auth = catchAsync(async (req, res, next) => {
 
     const expected_me = canonicalizeUrl(me);
 
-    req.session.me = expected_me;
+    if (req.query.action === "logout") {
+      req.session.me = "";
+    }
     // IF THE USER DOMAIN IS ALREADY IN THE SESSION SKIP AUTHENTICATION
-    if (expected_me == req.session.me && req.session.code) {
+    if (expected_me === req.session.me && req.session.code) {
       const query = querystring.stringify({
         action: "logout",
         code: req.session.code,
@@ -163,6 +165,7 @@ exports.auth = catchAsync(async (req, res, next) => {
     }
 
     // SET SESSIONS
+    req.session.me = expected_me;
     req.session.login_request = login_request;
 
     // GET REL="ME" LINKS
