@@ -160,6 +160,8 @@ exports.auth = catchAsync(async (req, res, next) => {
         app_name: login_request.client_info.app_name,
         app_url: login_request.client_info.app_url,
         app_logo: login_request.client_info.app_logo,
+        code: req.session.code,
+        state,
         switch_account,
       });
     }
