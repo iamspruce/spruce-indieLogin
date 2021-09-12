@@ -80,7 +80,7 @@ const sendErrorProd = (err, req, res) => {
   // 2) Send generic message
   return res.status(err.statusCode).render("error", {
     title: "Something went wrong!",
-    error: "Something went wrong from the server. please try again",
+    error: "Something went wrong. please try again",
   });
 };
 

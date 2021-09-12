@@ -6,11 +6,12 @@ html(lang="en")
     .wrapper.wrapper-home 
       form.header(action="/auth" method="get")
         div
-          h1 Welcome Dear Internet Friend
           if user 
+            h1 Welcome #{user}
             p You successfully authenticated as #{user.username}
             p Enter your domain to try again
           else
+            h1 Welcome Dear Internet Friend
             p Enter Your Domain name in the form below to test the spruceAuth Authentication
         label.screen-reader-text(for="url") login to formzilla
         input(id="url" type="url" name="me" placeholder="https://yourdomain.com" )
@@ -31,9 +32,9 @@ html(lang="en")
             | /
             a(href="https://twitter.com/sprucekhalifa" rel="me") Twitter
           p.footer__item
-            strong Project files 
+            strong SetUp 
             br
-            a(href="https://github.com/iamspruce/indieLogin-Demo") View project files
+            a(href="https://github.com/iamspruce/spruceAuth/") How to Use
           p.footer__item
             strong Buy me a Coffee 
             br
