@@ -7,7 +7,7 @@ html(lang="en")
       form.header(action="/auth" method="get")
         div
           if user 
-            h1 Welcome #{user}
+            h1 Welcome #{user.me}
             p You successfully authenticated as #{user.username}
             p Enter your domain to try again
           else
