@@ -1,9 +1,8 @@
 extends layout 
 block main 
   h1.header You are logging In to: #{client_id}
-  .auth-wrapper
+  .auth-wrapper.text-center
     p You will be redirected to:  #{redirect_uri}
-    a.btn.btn-round(href=`${redirect_uri}?code=${code}&state=${state}`) Continue
-  .auth-wrapper 
-    p Log In with a different account
-    a.btn.btn-round(href=`auth/?${switch_account}`) Switch Account
+    a.btn(href=`${redirect_uri}?code=${code}&state=${state}`) Continue
+    p.marginTop-2 Log In with a different account
+    a.btn(href=`auth/?${switch_account}`) Switch Account
