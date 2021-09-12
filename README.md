@@ -23,10 +23,9 @@ To use GitHub, link to your GitHub profile on your home page.
 
 Make sure your GitHub account has your URL in your profile. If you don't want to add Github link to your website you can use invisible link
 
-``
-
+```
 <link href="https://github.com/iamspruce" rel="me">
-``
+```
 
 ## Email Address
 
@@ -37,10 +36,9 @@ To use your email address to authenticate, you'll receive a varification link. J
 ```
 
 If you don't want to add Email Address link to your website you can use invisible link
-``
-
+```
 <link href="mailto:me@example.com" rel="me">
-``
+```
 
 # for Developers: Using spruceAuth
 
@@ -48,8 +46,7 @@ Using spruceAuth to handle logging users only takes four steps. Users will ident
 
 ## 1. Create a Web Sign-In form
 
-``
-
+```
 <form action="https://indie.iamspruce.dev/auth" method="get">
   <label for="url">Web Address:</label>
   <input id="url" type="text" name="me" placeholder="yourdomain.com" />
@@ -58,7 +55,7 @@ Using spruceAuth to handle logging users only takes four steps. Users will ident
   <input type="hidden" name="redirect_uri" value="https://example.com/redirect" />
   <input type="hidden" name="state" value="somerandomstring" />
 </form>
-``
+```
 
 ### Parameters
 
@@ -90,7 +87,7 @@ The redirect*uri will contain two query parameters \_code & state*, you have to 
 
 In this step you need to exchange the code for the authenticatedusers website. to do so you need to make a POST request to *https://indie.iamspruce.dev/auth* with the code, client_id and redirect_uri.
 
-``
+```
 POST https://indie.iamspruce.dev/auth HTTP/1.1
 Content-Type: application/x-www-form-urlencoded;charset=UTF-8
 Accept: application/json
@@ -98,18 +95,18 @@ Accept: application/json
 code=gk7n4opsyuUxhvF4&
 redirect_uri=https://example.com/callback&
 client_id=https://example.com/
-``
+```
 
 If all is successful you will get a successful response:
 
-``
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
 "me": "https://iamspruce.dev/"
 }
-``
+```
 
 ## 5. There's no step 5
 
