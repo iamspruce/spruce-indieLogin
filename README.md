@@ -19,7 +19,9 @@ b. Email Address
 
 To use GitHub, link to your GitHub profile on your home page.
 
-`<a href="https://github.com/iamspruce" rel="me">github.com/iamspruce</a>`
+```
+<a href="https://github.com/iamspruce" rel="me">github.com/iamspruce</a>
+```
 
 Make sure your GitHub account has your URL in your profile. If you don't want to add Github link to your website you can use invisible link
 
