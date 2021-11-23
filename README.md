@@ -1,12 +1,12 @@
-# What is spruceAuth?
+# What is IndieAuth?
 
-spruceAuth is a NodeJs implementation of [IndieLogin.com](https://indielogin.com/) that makes it easy to add web sign-in to your applications.
-[spruceAuth](https://indie.iamspruce.dev) uses RelMe links that allows users to log in with their own domain name.
-With spruceAuth users don't have to create new accounts, the service will use the user's already created Social accounts, e.g Github or passwordless login with email verification and it dosen't really matter what the user authenticate with the identity provided to the application will always be the user's primary website.
+IndieAuth is a NodeJs implementation of [IndieLogin.com](https://indielogin.com/) that makes it easy to add web sign-in to your applications.
+[IndieAuth](https://indie.iamspruce.dev) uses RelMe links that allows users to log in with their own domain name.
+With IndieAuth users don't have to create new accounts, the service will use the user's already created Social accounts, e.g Github or passwordless login with email verification and it dosen't really matter what the user authenticate with the identity provided to the application will always be the user's primary website.
 
-# For users: How to Set Up Your Website for spruceAuth
+# For users: How to Set Up Your Website for IndieAuth
 
-You are here probably because the website you are trying to log in to uses spruceAuth to handle logging users in.
+You are here probably because the website you are trying to log in to uses IndieAuth to handle logging users in.
 
 You don't have to create a new account, rather we'll use some accounts you may already have in order to authenticate you. You can always choose the services you use to log in, and the site you're logging in to won't know about this.
 
@@ -42,9 +42,9 @@ If you don't want to add Email Address link to your website you can use invisibl
 <link href="mailto:me@example.com" rel="me">
 ```
 
-# for Developers: Using spruceAuth
+# for Developers: Using IndieAuth
 
-Using spruceAuth to handle logging users only takes four steps. Users will identity themselves with their website and will be asked to authenticate using one of the available authentication provider
+Using IndieAuth to handle logging users only takes four steps. Users will identity themselves with their website and will be asked to authenticate using one of the available authentication provider
 
 ## 1. Create a Web Sign-In form
 
@@ -114,6 +114,5 @@ Content-Type: application/json
 
 You don't have to worry about which authorization provider the user used as you will always get the user domain name as response.
 
-For a more detailed guide on how to implement spruceAuth and the story behind it. please read this article:
 
 Spruce Emmanuel
